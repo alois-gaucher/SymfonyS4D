@@ -1,0 +1,16 @@
+{# templates/time/now.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}What time is it?{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <h1>What time is it?</h1>
+            <p>Actual time is {{ time }} at the generation of this page.</p>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

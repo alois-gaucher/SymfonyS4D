@@ -5,16 +5,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LuckyController extends AbstractController
+class Time extends AbstractController
 {
     /**
-     * @Route("/lucky/number", name="app_lucky_number")
+     * @Route("/time/now", name="app_time")
      */
-    public function number()
+    public function get_time()
     {
-        $number = mt_rand(0, 150);
-        return $this->render('lucky/number.html.twig', array(
-            'number' => $number,
+        $time = date('d F Y G:i:s');;
+        return $this->render('time/now.html.twig', array(
+            'time' => $time,
         ));
     }
 }

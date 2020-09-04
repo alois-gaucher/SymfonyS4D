@@ -1,2 +1,28 @@
 {# templates/lucky/number.html.twig #}
-<h1>Your lucky number is {{ number }}</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Lucky Number!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <h1>Your lucky number is {{ number }}</h1>
+            <table border="1px">
+                <thead>
+                    <tr>
+                        <th colspan="2">My Lucky Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>My number is:</td>
+                        <td>{{ number }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
