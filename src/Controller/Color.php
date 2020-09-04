@@ -12,7 +12,6 @@ class Color extends AbstractController
     */
     public function get_color($color)
     {
-        $color = $color;
         return $this->render('color/color.html.twig', array(
             'color' => $color,
         ));

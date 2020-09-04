@@ -10,9 +10,16 @@
         {% block body %}
             <p>You choose
                 <style>
+                    p {
+                        text-align: center;
+                    }
                     #color {
                         color: {{ color }};
                     }
+
+                    /*html {
+                        background-color: {{ color }};
+                    }*/
                 </style>
                 <b id="color">{{ color }}</b>
             </p>
