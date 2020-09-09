@@ -3,21 +3,21 @@
 
 {% block body %}
     <p>Vous avez choisi
-        <style>
-            p {
-                text-align: center;
-            }
-            #color {
-                color: {{ color }};
-            }
+    <style>
+        p {
+            text-align: center;
+        }
+        #color {
+            color: {{ color }};
+        }
 
-            /*html {
-                background-color: {{ color }};
+        /*html {
+            background-color: {{ color }};
                     }*/
-        </style>
-        <b id="color">{{ color }}</b>
-        {% if color == "red" %}
+    </style>
+    <b id="color">{{ color }}</b>
+    {% if color == "red" %}
         <p class="alert-danger">Attention risque de virus</p>
-        {% endif %}
+    {% endif %}
     </p>
 {% endblock %}
