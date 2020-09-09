@@ -29,18 +29,11 @@
                 <li {% if route_name matches '{^app_accueil}' %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
                     <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
                 </li>
-                <li {% if route_name matches '{^app_lucky_number}' %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
-                    <a class="nav-link" href="{{ path('app_lucky_number')}}">Lucky number</a>
+                {% for color in colors %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_lucky_color', {color:color}) }}">{{ color|capitalize }}</a>
                 </li>
-                <li {% if route_name matches '{^app_lucky_color}' %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
-                    <a class="nav-link" href="{{ path('app_lucky_color',{color: 'red'}) }}">Rouge</a>
-                </li>
-                <li {% if route_name matches '{^app_lucky_color}' %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
-                    <a class="nav-link" href="{{ path('app_lucky_color',{color: 'blue'}) }}">Bleu</a>
-                </li>
-                <li {% if route_name matches '{^app_lucky_color}' %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
-                    <a class="nav-link" href="{{ path('app_lucky_color',{color: 'salmon'}) }}">Saumon</a>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     </nav>

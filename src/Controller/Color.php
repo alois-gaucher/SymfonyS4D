@@ -7,6 +7,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Color extends AbstractController
 {
+    private $color = ['blue', 'yellow', 'red', 'green', 'purple', 'salmon'];
+
     /**
     * @Route("/color/{color}", name="app_lucky_color")
     */
@@ -14,6 +16,7 @@ class Color extends AbstractController
     {
         return $this->render('color/color.html.twig', array(
             'color' => $color,
+            'colors' => $this->color
         ));
     }
 }

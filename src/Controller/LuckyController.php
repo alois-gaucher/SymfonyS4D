@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LuckyController extends AbstractController
 {
+    private $color = ['blue', 'yellow', 'red', 'green', 'purple', 'salmon'];
     /**
      * @Route("/lucky/number", name="app_lucky_number")
      */
@@ -16,6 +17,7 @@ class LuckyController extends AbstractController
         $number = mt_rand(0, 150);
         return $this->render('lucky/number.html.twig', array(
             'number' => $number,
+            'colors' => $this->color
         ));
     }
 

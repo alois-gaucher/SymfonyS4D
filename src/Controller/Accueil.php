@@ -7,12 +7,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Accueil extends AbstractController
 {
+    private $color = ['blue', 'yellow', 'red', 'green', 'purple', 'salmon'];
+
     /**
      * @Route("/", name="app_accueil")
      */
     public function accueil()
     {
-        return $this->render('accueil/accueil.html.twig');
+        return $this->render('accueil/accueil.html.twig', [
+            'colors' => $this->color
+    ]);
+
     }
 }
 ?>
