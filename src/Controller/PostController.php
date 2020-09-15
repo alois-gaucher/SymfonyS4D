@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\PostCategory;
+use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -44,6 +46,48 @@ In a mi dictum, viverra lacus a, ullamcorper mi. Nulla nunc libero, sagittis non
 
         return $this->render('post/index.html.twig', [
             'post' => $post,
+        ]);
+    }
+
+    /**
+     * @Route("/post/read/", name="post_read_all")
+     */
+    public function GetPosts()
+    {
+        $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
+
+        return $this->render('post/index.html.twig', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
+     * @Route("/category/show/{id}", name="category_show")
+     */
+    public function GetCategory($id)
+    {
+        $postCategory = $this->getDoctrine()->getRepository(PostCategory::class)->find($id);
+
+        return $this->render('post_category/index.html.twig', [
+            'postCategory' => $postCategory,
+        ]);
+    }
+
+    /**
+     * @Route("/post-post-category", name="post-post-category")
+     */
+    public function affichePostCategory(PostRepository $postRepository, PostCategoryRepository $postCategoryRepository)
+    {
+        // ligne ci-dessous inutile car injection de dépendance dans la méthode)
+        //$postRepository = $this->getDoctrine()->getRepository(Post::class);
+        $post = $postRepository->find(1); //récupère le post avec l'ID 1
+        $posts = $postRepository->findAll(); //récupère tous les posts
+        $postCategory = $postCategoryRepository->find(1);
+
+        return $this->render('post/post-post-category.html.twig', [
+            'post' => $post,
+            'postCategory' => $postCategory,
+            'posts' => $posts
         ]);
     }
 
