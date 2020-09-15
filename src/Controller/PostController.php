@@ -32,19 +32,18 @@ In a mi dictum, viverra lacus a, ullamcorper mi. Nulla nunc libero, sagittis non
         $em->flush();
 
         return $this->render('post/index.html.twig', [
-            'controller_name' => 'PostController',
-        ]);
+            'post' => $post,]);
     }
 
     /**
-     * @Route("/post/read", name="post")
+     * @Route("/post/read/{id}", name="post_read")
      */
-    public function GetPost()
+    public function GetPost($id)
     {
-        $post = $this->getDoctrine()->getRepository(Post::class)->find(1);
+        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
 
         return $this->render('post/index.html.twig', [
-            'controller_name' => 'PostController',
+            'post' => $post,
         ]);
     }
 
