@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ post.title }}{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
 <style>
@@ -9,19 +9,14 @@
 </style>
 
 {% block content %}
-    <h1>Post</h1>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <p><i>{{ post.dateCreated|date('d/m/Y H:i') }}</i></p>
-
-    <h1>Post Category</h1>
-    <p>{{ postCategory.title }}</p>
-
     <h1>tous les Posts</h1>
     {% for post in posts %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.content }}</p>
+        <p>Catégorie {{ post.category.title }}</p>
         <p><i>{{ post.dateCreated|date('d/m/Y H:i') }}</i></p>
+        <a href="{{ path('supprimer_post', {post:post.id}) }}">Supprimer</a>
     {% endfor %}
 {% endblock %}
+
 {% endblock %}

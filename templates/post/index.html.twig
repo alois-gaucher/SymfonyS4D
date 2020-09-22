@@ -12,5 +12,6 @@
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
     <p><i>{{ post.dateCreated|date('d/m/Y H:i') }}</i></p>
+    <p>Catégorie: {{ post.category.title }}</p>
 </div>
 {% endblock %}
