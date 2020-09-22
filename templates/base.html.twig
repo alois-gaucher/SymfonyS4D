@@ -5,6 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {{ route_name }} !{% endblock %}</title>
+    {% block meta %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
     {% block stylesheets %}
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
